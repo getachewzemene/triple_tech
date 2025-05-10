@@ -13,7 +13,7 @@ const Title = styled(motion.h1)`
 `;
 
 const Home = () => (
-  <HomeWrapper>
+  <HomeWrapper id="home">
     <Title initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
       Welcome to Triple Technologies
     </Title>

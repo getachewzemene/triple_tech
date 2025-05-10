@@ -1,3 +1,4 @@
+// /src/components/MainPage.js
 import React from "react";
 import Carousel from "./Carousel";
 import Home from "./Home";

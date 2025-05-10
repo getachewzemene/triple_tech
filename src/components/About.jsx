@@ -9,7 +9,7 @@ const AboutSection = styled.section`
 `;
 
 const About = () => (
-  <AboutSection>
+  <AboutSection id="about">
     <motion.h2 initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
       About Us
     </motion.h2>

@@ -53,7 +53,7 @@ const Contact = () => {
   };
 
   return (
-    <ContactSection>
+    <ContactSection id="contact">
       <motion.h2 initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
         Contact Us
       </motion.h2>

@@ -14,25 +14,32 @@ const Carousel = () => {
         centeredSlides={true}
         autoplay={{ delay: 4000, disableOnInteraction: false }}
         pagination={{ clickable: true }}
-        style={{ width: "100%", height: "400px" }}
+        style={{ width: "100%", height: "700px" }}
       >
         <SwiperSlide>
           <img
-            src="/images/event1.jpg"
+            src="/assets/images/c111.jpg"
             alt="Event 1"
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src="/images/event2.jpg"
+            src="/assets/images/cdm.jpg"
+            alt="Event 1"
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img
+            src="/assets/images/cdm2.jpg"
             alt="Event 2"
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src="/images/event3.jpg"
+            src="/assets/images/c3.jpg"
             alt="Event 3"
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />

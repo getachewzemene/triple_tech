@@ -19,7 +19,7 @@ const PartnerLogo = styled(motion.img)`
 `;
 
 const Partners = () => (
-  <PartnersSection>
+  <PartnersSection id="partners">
     <motion.h2 initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
       Our Partners
     </motion.h2>

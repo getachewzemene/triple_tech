@@ -19,7 +19,7 @@ const ImpactCard = styled(motion.div)`
 `;
 
 const WhyChooseUs = () => (
-  <WhyChooseSection id="our-impact">
+  <WhyChooseSection id="why-choose-us">
     <motion.h2 initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
       Why Choose Us
     </motion.h2>
