@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import styled from "styled-components";
+import {ThemeContext } from "./ThemeContext";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import MainPage from "./components/MainPage";
 
-function App() {
+const AppWrapper = styled.div`
+  background: ${({ darkMode }) => (darkMode ? "#222" : "#FFF")};
+  color: ${({ darkMode }) => (darkMode ? "#FFF" : "#222")};
+  min-height: 100vh;
+  transition: background 0.4s ease-in-out;
+`;
+
+const App = () => {
+  const { darkMode } = useContext(ThemeContext);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Router>
+        <AppWrapper darkMode={darkMode}>
+          <Header />
+          <Routes>
+            <Route path="/" element={<MainPage />} />
+          </Routes>
+          <Footer />
+        </AppWrapper>
+      </Router>
   );
-}
+};
 
 export default App;
