@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const FooterWrapper = styled.footer`
   padding: 20px;
-  background: #222;
+  background: #003366;
   color: white;
   text-align: center;
 `;
