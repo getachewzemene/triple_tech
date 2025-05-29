@@ -21,11 +21,12 @@ const Heading = styled(motion.h2)`
 `;
 
 const TeamCard = styled(motion.div)`
-  padding: 20px;
-  margin: 10px;
-  background: #003366;
+  background: #fff;
   color: white;
-  border-radius: 8px;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid rgb(212, 194, 194); /* Add a border for better visibility */
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,20 +47,33 @@ const TeamCard = styled(motion.div)`
   .icon {
     font-size: 40px; /* Set icon size */
     margin-bottom: 10px; /* Add spacing below the icon */
-    color: #ffd700; /* Icon color */
+    color: #0070f3; /* Icon color */
   }
 
-  h3 {
+   h3 {
     margin: 0 0 10px;
     font-size: 18px;
+    color: #003366; /* Heading color */
+    transition: color 0.3s ease;
   }
 
   p {
-     font-size: 16px;
+    font-size: 16px;
     line-height: 1.8;
     text-align: justify; /* Justify text for better readability */
-    text-align-last: start; 
+    text-align-last: start; /* Align text to the left */
+    hyphens: auto; /* Enable hyphenation for better word wrapping */
+    word-spacing: 0.5px; /* Adjust word spacing for better readability */
     flex-grow: 1; /* Ensures the description takes up available space */
+    color: #333; /* Text color */
+    transition: color 0.3s ease;
+  }
+  &:hover h3,
+  &:hover p {
+    color: #fff; /* Change header and body text color to white on hover */
+  }
+  &:hover .icon {
+    color: #ffd700; /* Change icon color to white on hover */
   }
 `;
 
@@ -74,21 +88,20 @@ const Team = () => (
       Meet Our Team
     </Heading>
   <TeamWrapper id="team">
-    
-    <TeamCard whileHover={{ scale: 1.05 }}>
-      <FaLaptopCode className="icon" />
-      <h3>Getachew Zemene</h3>
-      <p>Software Engineer</p>
-    </TeamCard>
     <TeamCard whileHover={{ scale: 1.05 }}>
       <FaBullhorn className="icon" />
       <h3>Tsegaselassie Kindye</h3>
-      <p>Digital Manager</p>
+      <p>CEO & Co-Founder</p>
+    </TeamCard>
+        <TeamCard whileHover={{ scale: 1.05 }}>
+      <FaLaptopCode className="icon" />
+      <h3>Getachew Zemene</h3>
+      <p>CTO & Co-Founder</p>
     </TeamCard>
     <TeamCard whileHover={{ scale: 1.05 }}>
       <FaPaintBrush className="icon" />
       <h3>Dagim Wondale</h3>
-      <p>Graphics Designer</p>
+      <p>CMO & Co-Founder</p>
     </TeamCard>
   </TeamWrapper>
   </>

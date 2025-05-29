@@ -5,7 +5,7 @@ import {ThemeContext } from "./ThemeContext";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import MainPage from "./components/MainPage";
-
+import Training from "./components/Training";
 const AppWrapper = styled.div`
   background: ${({ darkMode }) => (darkMode ? "#222" : "#FFF")};
   color: ${({ darkMode }) => (darkMode ? "#FFF" : "#222")};
@@ -22,6 +22,7 @@ const App = () => {
           <Header />
           <Routes>
             <Route path="/" element={<MainPage />} />
+            <Route path="/training" element={<Training />} />
           </Routes>
           <Footer />
         </AppWrapper>
