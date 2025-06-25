@@ -171,7 +171,10 @@ const Header = () => {
             alt="Triple Tech."
             style={{ width: "50px", height: "50px", marginRight: "4px" }}
           />
-          <h1 style={{ fontSize: "24px", marginLeft: "-7px", color: "#fff" }}>Triple Technologies</h1>
+          <h1 style={{ fontSize: "24px", marginLeft: "-7px", color: "#fff",
+            fontWeight: "bold", textTransform: "uppercase", letterSpacing: "1px"
+
+          }}>Triple Technologies</h1>
         </a>
         <Nav>
           <NavLink to="home" smooth={true} duration={500}>
@@ -209,7 +212,7 @@ const Header = () => {
           >
             Training
           </a>
-          <NavLink to="contact" smooth={true} duration={500}>
+          <NavLink to="footer" smooth={true} duration={500}>
             Contact
           </NavLink>
         </Nav>
@@ -255,7 +258,7 @@ const Header = () => {
               >
                 Training
               </MobileExternalLink>
-              <MobileNavLink to="contact" smooth={true} duration={500} onClick={handleNavClick} style={{ display: "inline" }}>
+              <MobileNavLink to="footer" smooth={true} duration={500} onClick={handleNavClick} style={{ display: "inline" }}>
                 Contact
               </MobileNavLink>
 

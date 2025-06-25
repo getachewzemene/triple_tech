@@ -5,7 +5,6 @@ import Services from "./Services";
 import Projects from "./Projects";
 import Team from "./Team";
 import WhyChooseUs from "./WhyChooseUs";
-import Contact from "./Contact";
 import Header from "./Header";
 const MainPage = () => {
   return (
@@ -16,7 +15,6 @@ const MainPage = () => {
       <Projects />
       <WhyChooseUs />
       <Team />
-      <Contact />
     </>
   );
 };

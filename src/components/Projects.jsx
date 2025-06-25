@@ -12,12 +12,28 @@ const ProjectsWrapper = styled.section`
   justify-content: center;
   gap: 20px; /* Add spacing between cards */
 `;
-
+const HeadingWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 const Heading = styled(motion.h2)`
   font-size: 32px;
   color: #003366;
-  margin-bottom: -10px;
-  text-align: center; /* Center the heading text */
+  margin-bottom: 30px;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 2%;
+    width: 50%;
+    height: 4px;
+    background: rgb(255, 174, 0); /* Light gold tone */
+    border-radius: 2px;
+  }
 `;
 
 const ProjectCard = styled(motion.div)`
@@ -87,6 +103,7 @@ const slideInRight = {
 
 const Projects = () => (
   <>
+  <HeadingWrapper>
   <Heading
       initial={{ opacity: 0, y: -20 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -95,6 +112,7 @@ const Projects = () => (
     >
       Our Recent Projects
     </Heading>
+  </HeadingWrapper>
   <ProjectsWrapper id="projects">
     <ProjectCard
       variants={slideInRight}

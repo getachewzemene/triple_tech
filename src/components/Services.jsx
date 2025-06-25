@@ -11,13 +11,30 @@ const ServicesWrapper = styled.section`
   justify-content: center;
   gap: 20px; /* Add spacing between cards */
 `;
-
+const HeadingWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 const Heading = styled(motion.h2)`
   font-size: 32px;
   color: #003366;
-  margin-bottom: -10px;
-  text-align: center; /* Center the heading text */
+  margin-bottom: 30px;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 2%;
+    width: 50%;
+    height: 4px;
+    background: rgb(255, 174, 0); /* Light gold tone */
+    border-radius: 2px;
+  }
 `;
+
 
 const ServiceCard = styled(motion.div)`
   background: #fff;
@@ -86,14 +103,17 @@ const slideInRight = {
 
 const Services = () => (
   <>
-    <Heading
-      initial={{ opacity: 0, y: -20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      viewport={{ once: true }}
-    >
-      Our Services
-    </Heading>
+  <HeadingWrapper>
+  <Heading
+    initial={{ opacity: 0, y: -20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+    viewport={{ once: true }}
+  >
+    Our Services
+  </Heading>
+</HeadingWrapper>
+
     <ServicesWrapper id="services">
       <ServiceCard
         variants={slideInRight}

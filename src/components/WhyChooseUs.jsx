@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { FaLightbulb, FaUserTie, FaHeadset } from "react-icons/fa";
 
 const SectionWrapper = styled.section`
-  padding: 50px;
+  padding: 30px;
   background: #fff;
   text-align: center;
   display: flex;
@@ -13,12 +13,28 @@ const SectionWrapper = styled.section`
   gap: 20px;
 `;
 
+const HeadingWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 const Heading = styled(motion.h2)`
   font-size: 32px;
   color: #003366;
-  margin-bottom: -10px;
-  width: 100%;
+  margin-bottom: 30px;
   text-align: center;
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 2%;
+    width: 50%;
+    height: 4px;
+    background: rgb(255, 174, 0); /* Light gold tone */
+    border-radius: 2px;
+  }
 `;
 
 const Card = styled(motion.div)`
@@ -32,7 +48,7 @@ const Card = styled(motion.div)`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  width: 250px;
+  width: 300px;
   height: 250px;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -80,6 +96,7 @@ const Card = styled(motion.div)`
 
 const WhyChooseUs = () => (
   <>
+  <HeadingWrapper>
     <Heading
       initial={{ opacity: 0, y: -20 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -88,8 +105,9 @@ const WhyChooseUs = () => (
     >
       Why Choose Us
     </Heading>
-    <SectionWrapper id="why-choose-us">
-      <Card whileHover={{ scale: 1.05 }}>
+  </HeadingWrapper>
+  <SectionWrapper id="why-choose-us">
+    <Card whileHover={{ scale: 1.05 }}>
         <FaLightbulb className="icon" />
         <h3>Innovation</h3>
         <p>

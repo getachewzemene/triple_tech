@@ -1,10 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
-import { FaLaptopCode, FaBullhorn, FaPaintBrush } from "react-icons/fa"; // Import icons
+import { FaUserTie } from "react-icons/fa";
 
 const TeamWrapper = styled.section`
-  padding: 50px;
+  padding: 30px;
   background: white;
   text-align: center;
   display: flex;
@@ -13,13 +13,29 @@ const TeamWrapper = styled.section`
   gap: 20px; /* Add spacing between cards */
 `;
 
+const HeadingWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 const Heading = styled(motion.h2)`
   font-size: 32px;
   color: #003366;
-  margin-bottom: -10px;
-  text-align: center; /* Center the heading text */
-`;
+  margin-bottom: 30px;
+  text-align: center;
+  position: relative;
+  display: inline-block;
 
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 2%;
+    width: 50%;
+    height: 4px;
+    background: rgb(255, 174, 0); /* Light gold tone */
+    border-radius: 2px;
+  }
+`;
 const TeamCard = styled(motion.div)`
   background: #fff;
   color: white;
@@ -79,6 +95,7 @@ const TeamCard = styled(motion.div)`
 
 const Team = () => (
   <>
+  <HeadingWrapper>
   <Heading
       initial={{ opacity: 0, y: -20 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -87,19 +104,20 @@ const Team = () => (
     >
       Meet Our Team
     </Heading>
+  </HeadingWrapper>
   <TeamWrapper id="team">
     <TeamCard whileHover={{ scale: 1.05 }}>
-      <FaBullhorn className="icon" />
+      <FaUserTie className="icon" />
       <h3>Tsegaselassie Kindye</h3>
       <p>CEO & Co-Founder</p>
     </TeamCard>
-        <TeamCard whileHover={{ scale: 1.05 }}>
-      <FaLaptopCode className="icon" />
+    <TeamCard whileHover={{ scale: 1.05 }}>
+      <FaUserTie className="icon" />
       <h3>Getachew Zemene</h3>
       <p>CTO & Co-Founder</p>
     </TeamCard>
     <TeamCard whileHover={{ scale: 1.05 }}>
-      <FaPaintBrush className="icon" />
+      <FaUserTie className="icon" />
       <h3>Dagim Wondale</h3>
       <p>CMO & Co-Founder</p>
     </TeamCard>
