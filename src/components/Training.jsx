@@ -1,74 +1,207 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
+import Header from "./Header";
 
-// Styled Components for card layout
+// Elegant Theme Colors
+const colors = {
+  background: "#F4F6F8",
+  card: "#ffffff",
+  accent: "#2C3E50",
+  highlight: "#3498DB",
+  text: "#333",
+  lightText: "#777",
+};
+
+// Styled Components
+const PageWrapper = styled.div`
+  padding: 60px 40px;
+  background: ${colors.background};
+  font-family: "Segoe UI", sans-serif;
+`;
+
 const GridContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 30px;
   justify-content: center;
-  padding: 40px;
 `;
 
 const Card = styled(motion.div)`
   width: 300px;
-  padding: 20px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  background: ${colors.card};
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   cursor: pointer;
+  transition: all 0.3s ease;
+  h2 {
+    margin: 0 0 10px;
+    color: ${colors.accent};
+  }
+  p {
+    color: ${colors.lightText};
+  }
 `;
 
-const DetailsContainer = styled(motion.div)`
-  margin-top: 20px;
-  padding: 20px;
-  background: #f8f8f8;
+const LayoutContainer = styled.div`
+  display: flex;
+  height: 75vh;
+  margin-top: 40px;
+  gap: 24px;
+`;
+
+const LeftPanel = styled.div`
+  width: 35%;
+  background: ${colors.card};
+  padding: 24px;
+  overflow-y: auto;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+`;
+
+const RightPanel = styled.div`
+  flex: 1;
+  background: ${colors.card};
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Topic = styled.div`
+  margin: 12px 0;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 12px;
   border-radius: 8px;
+  transition: background 0.2s;
+  &:hover {
+    background: ${colors.highlight}20;
+    color: ${colors.highlight};
+  }
 `;
 
-// Sample Course Data
+const ContentDisplay = styled.div`
+  height: 100%;
+  width: 100%;
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 12px;
+  }
+`;
+
+const CloseButton = styled.button`
+  margin-top: 20px;
+  background: ${colors.accent};
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
+  &:hover {
+    background: ${colors.highlight};
+  }
+`;
+
+// Sample Data
 const courses = [
   { id: 1, title: "Video Editing", description: "Master video editing techniques." },
   { id: 2, title: "Digital Marketing", description: "Learn SEO and social media marketing." },
   { id: 3, title: "Web Development", description: "Build modern websites with React." },
+  { id: 6, title: "Mobile App Development", description: "Create apps for iOS and Android." },
+  { id: 5, title: "Graphic Design", description: "Create stunning visuals with design tools." },
+  { id: 8, title: "AI Automation", description: "Get started with artificial intelligence." },
 ];
+
+const courseContents = {
+  "Video Editing": [
+    { title: "Basics of Video Cutting", type: "video", src: "https://www.youtube.com/embed/5mgBikgcWnY" },
+    { title: "Exporting Projects", type: "pdf", src: "/pdfs/exporting.pdf" },
+  ],
+  "Digital Marketing": [
+    { title: "Introduction to SEO", type: "pdf", src: "/pdfs/seo-guide.pdf" },
+    { title: "Social Media Strategies", type: "video", src: "https://www.youtube.com/embed/ysz5S6PUM-U" },
+  ],
+  "Web Development": [
+    { title: "React Basics", type: "video", src: "https://www.youtube.com/embed/bMknfKXIFA8" },
+    { title: "Responsive Layouts", type: "pdf", src: "/pdfs/responsive.pdf" },
+  ],
+};
 
 const Training = () => {
   const [selectedCourse, setSelectedCourse] = useState(null);
+  const [selectedTopic, setSelectedTopic] = useState(null);
 
   return (
-    <div>
-      <h1 style={{ textAlign: "center" }}>Training Modules</h1>
-      <GridContainer>
-        {courses.map((course) => (
-          <Card
-            key={course.id}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => setSelectedCourse(course)}
-          >
-            <h2>{course.title}</h2>
-            <p>{course.description}</p>
-          </Card>
-        ))}
-      </GridContainer>
+    <>
+    <Header />
+    <PageWrapper>
+<h1 style={{ textAlign: "center", color: colors.accent }}>
+  {selectedCourse ? `${selectedCourse.title} Module` : "Training Modules"}
+</h1>
 
-      <AnimatePresence>
-        {selectedCourse && (
-          <DetailsContainer
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.5 }}
-          >
-            <h2>{selectedCourse.title}</h2>
-            <p>Detailed content about {selectedCourse.title} will be shown here.</p>
-            <button onClick={() => setSelectedCourse(null)}>Close</button>
-          </DetailsContainer>
-        )}
-      </AnimatePresence>
-    </div>
+        {!selectedCourse ? (
+          <GridContainer>
+            {courses.map((course) => (
+              <Card
+              key={course.id}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => setSelectedCourse(course)}
+            >
+              <h2>{course.title}</h2>
+              <p>{course.description}</p>
+            </Card>
+          ))}
+        </GridContainer>
+      ) : (
+        <AnimatePresence>
+          <LayoutContainer>
+            <LeftPanel>
+              <h2 style={{ color: colors.accent }}>Contents</h2>
+              {courseContents[selectedCourse.title]?.map((item, index) => (
+                <Topic key={index} onClick={() => setSelectedTopic(item)}>
+                  {item.title}
+                </Topic>
+              ))}
+              <CloseButton onClick={() => {
+                setSelectedCourse(null);
+                setSelectedTopic(null);
+              }}>
+                Back to Courses
+              </CloseButton>
+            </LeftPanel>
+
+            <RightPanel>
+              <ContentDisplay>
+                {selectedTopic ? (
+                  selectedTopic.type === "video" ? (
+                    <iframe
+                      src={selectedTopic.src}
+                      title={selectedTopic.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  ) : (
+                    <iframe src={selectedTopic.src} title={selectedTopic.title} />
+                  )
+                ) : (
+                  <p style={{ color: colors.lightText }}>Select a topic to view its content</p>
+                )}
+              </ContentDisplay>
+            </RightPanel>
+          </LayoutContainer>
+        </AnimatePresence>
+      )}
+    </PageWrapper>
+    </>
   );
 };
 

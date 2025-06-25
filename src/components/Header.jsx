@@ -42,6 +42,7 @@ const NavLink = styled(ScrollLink)`
   cursor: pointer;
   &:hover {
     color: #ffd700;
+    text-decoration: underline;
   }
 `;
 
@@ -94,6 +95,7 @@ const MobileNavLink = styled(ScrollLink)`
   cursor: pointer;
   &:hover {
     color: #ffd700;
+    text-decoration: underline;
   }
 `;
 
@@ -105,6 +107,7 @@ const MobileExternalLink = styled.a`
   cursor: pointer;
   &:hover {
     color: #ffd700;
+    text-decoration: underline;
   }
 `;
 
@@ -180,12 +183,13 @@ const Header = () => {
           <NavLink to="projects" smooth={true} duration={500}>
             Projects
           </NavLink>
+          <NavLink to="why-choose-us" smooth={true} duration={500}>
+            Why Choose Us
+          </NavLink>
           <NavLink to="team" smooth={true} duration={500}>
             Team
           </NavLink>
-          <NavLink to="about" smooth={true} duration={500}>
-            About
-          </NavLink>
+       
           <a
             href="/training"
             target="_blank"
@@ -198,6 +202,9 @@ const Header = () => {
               marginLeft: "0.5rem",
               marginRight: "0.5rem",
               display: "inline",
+            '&:hover': { color: "#ffd700",
+              textDecoration: "underline"
+            }
             }}
           >
             Training
@@ -232,12 +239,13 @@ const Header = () => {
               <MobileNavLink to="projects" smooth={true} duration={500} onClick={handleNavClick} style={{ display: "inline" }}>
                 Projects
               </MobileNavLink>
+                <MobileNavLink to="why-choose-us" smooth={true} duration={500} onClick={handleNavClick} style={{ display: "inline" }}>
+                Why Choose Us
+              </MobileNavLink>
               <MobileNavLink to="team" smooth={true} duration={500} onClick={handleNavClick} style={{ display: "inline" }}>
                 Team
               </MobileNavLink>
-              <MobileNavLink to="about" smooth={true} duration={500} onClick={handleNavClick} style={{ display: "inline" }}>
-                About
-              </MobileNavLink>
+            
               <MobileExternalLink
                 href="/training"
                 target="_blank"

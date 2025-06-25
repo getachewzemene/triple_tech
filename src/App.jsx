@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import styled from "styled-components";
 import {ThemeContext } from "./ThemeContext";
-import Header from "./components/Header";
 import Footer from "./components/Footer";
 import MainPage from "./components/MainPage";
 import Training from "./components/Training";
@@ -19,7 +18,6 @@ const App = () => {
   return (
       <Router>
         <AppWrapper darkMode={darkMode}>
-          <Header />
           <Routes>
             <Route path="/" element={<MainPage />} />
             <Route path="/training" element={<Training />} />
