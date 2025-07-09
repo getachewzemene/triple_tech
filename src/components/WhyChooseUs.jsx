@@ -5,7 +5,7 @@ import { FaLightbulb, FaUserTie, FaHeadset } from "react-icons/fa";
 
 const SectionWrapper = styled.section`
   padding: 30px;
-  background: #fff;
+  background: #f9f9f9;
   text-align: center;
   display: flex;
   flex-wrap: wrap;
@@ -102,11 +102,12 @@ const WhyChooseUs = () => (
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
+       id="why-choose-us"
     >
       Why Choose Us
     </Heading>
   </HeadingWrapper>
-  <SectionWrapper id="why-choose-us">
+  <SectionWrapper>
     <Card whileHover={{ scale: 1.05 }}>
         <FaLightbulb className="icon" />
         <h3>Innovation</h3>

@@ -4,7 +4,7 @@ import { FaLaptopCode, FaMobileAlt, FaBullhorn, FaChalkboardTeacher } from "reac
 
 const ServicesWrapper = styled.section`
   padding: 50px;
-  background: white;
+  background: #f9f9f9;
   text-align: center;
   display: flex;
   flex-wrap: wrap;
@@ -74,7 +74,6 @@ const ServiceCard = styled(motion.div)`
     color: #003366; /* Heading color */
     transition: color 0.3s ease;
   }
-
   p {
     font-size: 16px;
     line-height: 1.8;
@@ -103,7 +102,7 @@ const slideInRight = {
 
 const Services = () => (
   <>
-  <HeadingWrapper>
+  <HeadingWrapper id="services">
   <Heading
     initial={{ opacity: 0, y: -20 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -114,7 +113,7 @@ const Services = () => (
   </Heading>
 </HeadingWrapper>
 
-    <ServicesWrapper id="services">
+    <ServicesWrapper >
       <ServiceCard
         variants={slideInRight}
         initial="hidden"
@@ -123,6 +122,7 @@ const Services = () => (
       >
         <FaLaptopCode className="icon" />
         <h3>Web Development</h3>
+        <div className="divider" />
         <p>
           We specialize in creating responsive, modern, and visually appealing websites tailored to your business needs. 
           Our team ensures seamless user experiences with optimized performance, accessibility, and scalability.

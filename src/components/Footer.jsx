@@ -8,6 +8,8 @@ import {
   FaEnvelope,
   FaMapMarkerAlt,
   FaPhoneAlt,
+  FaTelegramPlane,
+  FaInstagram,
 } from "react-icons/fa";
 
 // Styled Components
@@ -120,9 +122,19 @@ const SubmitButton = styled(motion.button)`
 const Copyright = styled.div`
   width: 100%;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 10px;
   font-size: 15px;
   color: #ffffffaa;
+`;
+const MapContainer = styled.div`
+  width: 100%;
+  margin-top: -60px;
+  iframe {
+    width: 60%;
+    height: 300px;
+    border: none;
+    border-radius: 8px;
+  }
 `;
 
 const Footer = () => {
@@ -148,10 +160,10 @@ const Footer = () => {
             <FaMapMarkerAlt /> Megenagna, Addis Ababa
           </ContactItem>
           <ContactItem>
-            <FaPhoneAlt /> +251 912 345 678
+            <FaPhoneAlt /> +251 997 466 952
           </ContactItem>
           <ContactItem>
-            <FaEnvelope /> info@tripletech.com
+            <FaEnvelope /> tripletechnologies3@gmail.com
           </ContactItem>
         </Column>
 
@@ -164,11 +176,18 @@ const Footer = () => {
             <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
               <FaFacebookF />
             </a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <FaInstagram />
+            </a>
             <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <FaLinkedinIn />
             </a>
             <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
               <FaTwitter />
+            </a>
+            {/* telegram */}
+            <a href="https://t.me/yourtelegram" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+              <FaTelegramPlane />
             </a>
           </SocialRow>
         </Column>
@@ -199,6 +218,11 @@ const Footer = () => {
             </SubmitButton>
           </ContactForm>
         </Column>
+<MapContainer
+  dangerouslySetInnerHTML={{
+    __html: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d213.25016210377703!2d38.794672956140744!3d9.02006823267653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85005f5bf7d9%3A0xdb4918396ab3f0d5!2sTriple%20Technologies!5e1!3m2!1sen!2set!4v1752069101685!5m2!1sen!2set" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+  }}
+/>
 
         <Copyright>
           © 2025 Triple Technologies. All rights reserved.

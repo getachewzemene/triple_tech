@@ -74,7 +74,13 @@ const ProjectCard = styled(motion.div)`
     color: #003366; /* Heading color */
     transition: color 0.3s ease;
   }
-
+.divider {
+    width: 60px;
+    height: 3px;
+    background: #f4af1b;
+    border-radius: 2px;
+    margin: 8px 0;
+  }
   p {
     font-size: 16px;
     line-height: 1.8;
@@ -103,7 +109,7 @@ const slideInRight = {
 
 const Projects = () => (
   <>
-  <HeadingWrapper>
+  <HeadingWrapper id="projects">
   <Heading
       initial={{ opacity: 0, y: -20 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -113,7 +119,7 @@ const Projects = () => (
       Our Recent Projects
     </Heading>
   </HeadingWrapper>
-  <ProjectsWrapper id="projects">
+  <ProjectsWrapper>
     <ProjectCard
       variants={slideInRight}
       initial="hidden"
@@ -122,6 +128,7 @@ const Projects = () => (
     >
       <FaWarehouse className="icon" />
       <h3>Stock Management</h3>
+      <div className="divider" />
       <p>
         A comprehensive stock management system designed to streamline inventory tracking, reduce waste, and improve operational efficiency.
       </p>

@@ -5,7 +5,7 @@ import { FaUserTie } from "react-icons/fa";
 
 const TeamWrapper = styled.section`
   padding: 30px;
-  background: white;
+  background: #f9f9f9;
   text-align: center;
   display: flex;
   flex-wrap: wrap;
@@ -95,7 +95,7 @@ const TeamCard = styled(motion.div)`
 
 const Team = () => (
   <>
-  <HeadingWrapper>
+  <HeadingWrapper id="team">
   <Heading
       initial={{ opacity: 0, y: -20 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -105,7 +105,7 @@ const Team = () => (
       Meet Our Team
     </Heading>
   </HeadingWrapper>
-  <TeamWrapper id="team">
+  <TeamWrapper>
     <TeamCard whileHover={{ scale: 1.05 }}>
       <FaUserTie className="icon" />
       <h3>Tsegaselassie Kindye</h3>

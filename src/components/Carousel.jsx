@@ -6,12 +6,12 @@ import styled from "styled-components";
 const VideoSection = styled.section`
   position: relative;
   width: 100%;
-  height: clamp(300px, 75vw, 700px);
+  height: clamp(300px, 75vw, 550px);
   overflow: hidden;
 
   iframe {
     position: absolute;
-    top: 40%;
+    top: 30%;
     left: 50%;
     width: 100%; /* 100 * (16 / 9) for full aspect fill */
     height: 100vh;
@@ -104,7 +104,7 @@ const Carousel = () => {
                 marginBottom: 0,
               }}
             >
-              Triple Technologies delivers smart, practical tech solutions that empower businesses to grow faster and work smarter—through innovative software, IT training, digital marketing, and reliable network services.
+              Triple Technologies fuels business growth with smart software, training, and digital marketing.
             </p>
 
             <StyledButton
