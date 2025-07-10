@@ -13,8 +13,8 @@ const colors = {
   highlight: "#3498DB",
   text: "#333",
   lightText: "#777",
-  oceanBlue: "#1CA9C9",
-  lightYellow: "#FFEB88",
+  oceanBlue: "rgb(23, 84, 204)",
+  lightYellow: "rgb(246, 205, 0)",
   lightGold: "#F9D97A",
 };
 
@@ -24,7 +24,26 @@ const PageWrapper = styled.div`
   background: ${colors.background};
   font-family: "Segoe UI", sans-serif;
 `;
+ const Heading = styled(motion.h2)`
+  font-size: 32px;
+  color: #003366;
+  margin-left:40%;
+  margin-bottom: 50px;
+  margin-top: -30px;
+  position: relative;
+  display: inline-block;
 
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 2%;
+    width: 50%;
+    height: 4px;
+    background: rgb(255, 174, 0); /* Light gold tone */
+    border-radius: 2px;
+  }
+`;
 const GridContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -201,6 +220,18 @@ const courseContents = {
     { title: "React Basics", type: "video", src: "https://www.youtube.com/embed/bMknfKXIFA8" },
     { title: "Responsive Layouts", type: "pdf", src: "/pdfs/responsive.pdf" },
   ],
+ "Mobile App Development": [
+  {title: "Getting Started with React Native", type: "video", src: "https://www.youtube.com/embed/0-S5a0eXPoc" },
+  { title: "Building Your First App", type: "pdf", src: "/pdfs/first-app.pdf" },
+ ],
+ "Graphic Design": [
+  { title: "Design Principles", type: "video", src: "https://www.youtube.com/embed/1a8d2b3c4e5" },
+  { title: "Using Adobe Photoshop", type: "pdf", src: "/pdfs/photoshop-guide.pdf" },
+  ],
+  "AI Automation": [
+    { title: "Introduction to AI", type: "video", src: "https://www.youtube.com/embed/2e8d3f4g5h6" },
+    { title: "Building AI Models", type: "pdf", src: "/pdfs/ai-models.pdf" },
+  ]
 };
 
 const Training = () => {
@@ -211,10 +242,13 @@ const Training = () => {
     <>
       <Header />
       <PageWrapper>
-        <h1 style={{ textAlign: "center", color: colors.accent }}>
-          {selectedCourse ? `${selectedCourse.title} Module` : "Training Modules"}
-        </h1>
-
+      <Heading
+       initial={{ opacity: 0, y: -20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
+      > {selectedCourse ? `${selectedCourse.title} Module` : "Training Modules"}</Heading>
+         
         {!selectedCourse ? (
           <GridContainer>
             {courses.map((course) => (
