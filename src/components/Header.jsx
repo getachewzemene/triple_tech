@@ -167,7 +167,7 @@ const Header = () => {
           rel="noopener noreferrer"
         >
           <img
-            src={`${process.env.PUBLIC_URL}/assets/images/triple-logo.png`} 
+            src={`${process.env.REACT_APP_PUBLIC_URL}/assets/images/triple-logo.png`} 
             alt="Triple Tech."
             style={{ width: "50px", height: "50px", marginRight: "4px" }}
           />
