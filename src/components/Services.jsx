@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { FaLaptopCode, FaMobileAlt, FaBullhorn, FaChalkboardTeacher } from "react-icons/fa"; // Import icons
 
 const ServicesWrapper = styled.section`
+background: #F4F6F8;
   padding: 50px;
-  background: #f9f9f9;
   text-align: center;
   display: flex;
   flex-wrap: wrap;
@@ -37,17 +37,16 @@ const Heading = styled(motion.h2)`
 
 
 const ServiceCard = styled(motion.div)`
-  background: #fff;
-  color: white;
-  padding: 10px;
-  margin: 10px;
-  border: 1px solid rgb(212, 194, 194); /* Add a border for better visibility */
+background:#fff;
+  color: #222;
+  padding: 5px 5px;
+  border: 1px solid #fff;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start; /* Align content to the top */
   align-items: center; /* Center content horizontally */
-  width: 250px;
+  width: 280px;
   height: 350px; /* Adjust height to fit icons */
   cursor: pointer;
   text-align: center; /* Center text inside the card */
@@ -61,7 +60,13 @@ const ServiceCard = styled(motion.div)`
     color: white;
     transition: background 0.3s ease, color 0.3s ease; /* Smooth transition for background and text color */
   }
-
+  .divider {
+    width: 80px;
+    height: 3px;
+    background: #f4af1b;
+    border-radius: 2px;
+    margin: 8px 0;
+  }
   .icon {
     font-size: 40px; /* Set icon size */
     margin-bottom: 10px; /* Add spacing below the icon */
@@ -76,6 +81,7 @@ const ServiceCard = styled(motion.div)`
   }
   p {
     font-size: 16px;
+    padding: 0 10px; /* Add padding for better text spacing */
     line-height: 1.8;
     text-align: justify; /* Justify text for better readability */
     text-align-last: start; /* Align text to the left */
@@ -119,6 +125,7 @@ const Services = () => (
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
+        className="Card-wrapper"
       >
         <FaLaptopCode className="icon" />
         <h3>Web Development</h3>
@@ -133,9 +140,11 @@ const Services = () => (
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
+        className="Card-wrapper"
       >
         <FaMobileAlt className="icon" />
         <h3>Mobile App Development</h3>
+        <div className="divider" />
         <p>
           Our experts build high-performance mobile applications for Android and iOS platforms. 
           We use cutting-edge technologies to deliver apps that are fast, secure, and user-friendly, 
@@ -147,9 +156,11 @@ const Services = () => (
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
+        className="Card-wrapper"
       >
         <FaBullhorn className="icon" />
         <h3>Digital Marketing</h3>
+        <div className="divider" />
         <p>
           Boost your online presence with our comprehensive digital marketing services. 
           From SEO and PPC to social media marketing and content creation, we help you reach your target audience 
@@ -161,9 +172,11 @@ const Services = () => (
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
+        className="Card-wrapper"
       >
         <FaChalkboardTeacher className="icon" />
         <h3>IT Training and Consultancy</h3>
+        <div className="divider" />
         <p>
           Empower your team with our professional IT training and consultancy services. 
           We provide tailored training programs and expert advice to help your organization adopt the latest technologies 

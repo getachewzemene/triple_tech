@@ -5,7 +5,6 @@ import { FaUserTie } from "react-icons/fa";
 
 const TeamWrapper = styled.section`
   padding: 30px;
-  background: #f9f9f9;
   text-align: center;
   display: flex;
   flex-wrap: wrap;
@@ -41,7 +40,7 @@ const TeamCard = styled(motion.div)`
   color: white;
   padding: 10px;
   margin: 10px;
-  border: 1px solid rgb(212, 194, 194); /* Add a border for better visibility */
+  border: 1px solid #fff;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -68,13 +67,13 @@ const TeamCard = styled(motion.div)`
 
    h3 {
     margin: 0 0 10px;
-    font-size: 18px;
+    font-size: 20px;
     color: #003366; /* Heading color */
     transition: color 0.3s ease;
   }
 
   p {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.8;
     text-align: justify; /* Justify text for better readability */
     text-align-last: start; /* Align text to the left */
@@ -83,6 +82,13 @@ const TeamCard = styled(motion.div)`
     flex-grow: 1; /* Ensures the description takes up available space */
     color: #333; /* Text color */
     transition: color 0.3s ease;
+    margin-top: 10px; /* Add some space above the paragraph */
+  }
+  .sub-title {
+    font-size: 14px;
+    color: #666; /* Lighter color for sub-title */
+    margin-top: -5px; /* Add some space above the sub-title */
+    font-style: italic; /* Italicize the sub-title */
   }
   &:hover h3,
   &:hover p {
@@ -110,16 +116,19 @@ const Team = () => (
       <FaUserTie className="icon" />
       <h3>Tsegaselassie Kindye</h3>
       <p>CEO & Co-Founder</p>
+      <p className="sub-title">Software Engineer</p>
     </TeamCard>
     <TeamCard whileHover={{ scale: 1.05 }}>
       <FaUserTie className="icon" />
       <h3>Getachew Zemene</h3>
       <p>CTO & Co-Founder</p>
+      <p className="sub-title">Software Engineer|Full-Stack Developer</p>
     </TeamCard>
     <TeamCard whileHover={{ scale: 1.05 }}>
       <FaUserTie className="icon" />
       <h3>Dagim Wondale</h3>
       <p>CMO & Co-Founder</p>
+      <p className="sub-title">Software Engineer|Graphics Designer</p>
     </TeamCard>
   </TeamWrapper>
   </>

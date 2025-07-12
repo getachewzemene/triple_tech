@@ -37,11 +37,10 @@ const Heading = styled(motion.h2)`
 `;
 
 const ProjectCard = styled(motion.div)`
-  background: #fff;
   color: white;
   padding: 10px;
   margin: 10px;
-  border: 1px solid rgb(212, 194, 194); /* Add a border for better visibility */
+  border: 1px solid #fff;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -75,7 +74,7 @@ const ProjectCard = styled(motion.div)`
     transition: color 0.3s ease;
   }
 .divider {
-    width: 60px;
+    width: 80px;
     height: 3px;
     background: #f4af1b;
     border-radius: 2px;
@@ -125,6 +124,7 @@ const Projects = () => (
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
+      className="Card-wrapper"
     >
       <FaWarehouse className="icon" />
       <h3>Stock Management</h3>
@@ -138,9 +138,11 @@ const Projects = () => (
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
+      className="Card-wrapper"
     >
       <FaDumbbell className="icon" />
       <h3>Gym Website</h3>
+      <div className="divider" />
       <p>
         A modern and responsive website for gyms, featuring membership management, class schedules, and online booking capabilities.
       </p>
@@ -150,9 +152,11 @@ const Projects = () => (
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
+      className="Card-wrapper"
     >
       <FaHospital className="icon" />
       <h3>Hospital Management</h3>
+        <div className="divider" />
       <p>
         A hospital management solution to handle patient records, appointments, billing, and staff management efficiently.
       </p>
@@ -162,9 +166,11 @@ const Projects = () => (
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
+      className="Card-wrapper"
     >
       <FaIndustry className="icon" />
       <h3>Other Sectors</h3>
+      <div className="divider" />
       <p>
         Custom software solutions tailored for various industries, including manufacturing, retail, and logistics.
       </p>

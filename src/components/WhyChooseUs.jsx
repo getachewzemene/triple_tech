@@ -5,7 +5,6 @@ import { FaLightbulb, FaUserTie, FaHeadset } from "react-icons/fa";
 
 const SectionWrapper = styled.section`
   padding: 30px;
-  background: #f9f9f9;
   text-align: center;
   display: flex;
   flex-wrap: wrap;
@@ -42,7 +41,7 @@ const Card = styled(motion.div)`
   color: white;
   padding: 10px;
   margin: 10px;
-  border: 1px solid rgb(212, 194, 194);
+  border: 1px solid #fff;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -60,7 +59,13 @@ const Card = styled(motion.div)`
     background: #003399;
     color: white;
   }
-
+.divider {
+    width: 80px;
+    height: 3px;
+    background: #f4af1b;
+    border-radius: 2px;
+    margin: 8px 0;
+  }
   .icon {
     font-size: 40px;
     margin-bottom: 10px;
@@ -111,6 +116,7 @@ const WhyChooseUs = () => (
     <Card whileHover={{ scale: 1.05 }}>
         <FaLightbulb className="icon" />
         <h3>Innovation</h3>
+        <div className="divider" />
         <p>
           We deliver cutting-edge solutions tailored to your business needs, leveraging the latest technologies to keep you ahead of the competition.
         </p>
@@ -118,6 +124,7 @@ const WhyChooseUs = () => (
       <Card whileHover={{ scale: 1.05 }}>
         <FaUserTie className="icon" />
         <h3>Expertise</h3>
+        <div className="divider" />
         <p>
           Our team brings decades of industry experience, ensuring reliable, high-quality results and expert guidance at every project stage.
         </p>
@@ -125,6 +132,7 @@ const WhyChooseUs = () => (
       <Card whileHover={{ scale: 1.05 }}>
         <FaHeadset className="icon" />
         <h3>Support</h3>
+        <div className="divider" />
         <p>
           Enjoy 24/7 attentive support from our dedicated team, always ready to assist you and resolve any issues quickly and efficiently.
         </p>
