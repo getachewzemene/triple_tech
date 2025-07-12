@@ -2,6 +2,7 @@
   "name": "triple_tech",
   "version": "0.1.0",
   "private": true,
+  "homepage": "/triple_tech",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
