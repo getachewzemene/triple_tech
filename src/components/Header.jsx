@@ -192,26 +192,22 @@ const Header = () => {
           <NavLink to="team" smooth={true} duration={500}>
             Team
           </NavLink>
-       
-          <a
-            href="/training"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              color: "white",
-              textDecoration: "none",
-              fontWeight: "bold",
-              cursor: "pointer",
-              marginLeft: "0.5rem",
-              marginRight: "0.5rem",
-              display: "inline",
-            '&:hover': { color: "#ffd700",
-              textDecoration: "underline"
-            }
-            }}
-          >
-            Training
-          </a>
+   <a
+  href={`${window.location.origin}/#/training`}
+  target="_blank"
+  rel="noopener noreferrer"
+  style={{
+    color: "white",
+    textDecoration: "none",
+    fontWeight: "bold",
+    cursor: "pointer",
+    marginLeft: "0.5rem",
+    marginRight: "0.5rem",
+    display: "inline",
+  }}
+>
+  Training
+</a>
           <NavLink to="footer" smooth={true} duration={500}>
             Contact
           </NavLink>

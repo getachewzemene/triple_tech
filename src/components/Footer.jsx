@@ -12,33 +12,54 @@ import {
   FaInstagram,
 } from "react-icons/fa";
 
-// Styled Components
+// Styled Components (Mobile First)
 const FooterWrapper = styled.footer`
   background: #003366;
   color: white;
-  padding: 20px 30px;
+  padding: 20px 16px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 30px;
-  align-items: flex-start;
+  flex-direction: column;
+  gap: 24px;
+  align-items: stretch;
 
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  @media (min-width: 600px) {
+    padding: 24px 24px;
+    gap: 28px;
+  }
+
+  @media (min-width: 900px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 32px 40px;
+    gap: 32px;
   }
 `;
 
 const Column = styled.div`
-  flex: 1;
-  min-width: 220px;
+  width: 100%;
+  margin-bottom: 16px;
+
+  @media (min-width: 600px) {
+    margin-bottom: 0;
+  }
+
+  @media (min-width: 900px) {
+    flex: 1;
+    min-width: 220px;
+    width: auto;
+  }
 `;
 
 const LogoText = styled.h4`
-  font-size: 25px;
+  font-size: 22px;
   font-weight: 700;
   margin-bottom: 10px;
+
+  @media (min-width: 600px) {
+    font-size: 25px;
+  }
 `;
 
 const ContactItem = styled.p`
@@ -57,7 +78,7 @@ const ContactItem = styled.p`
 
 const SocialRow = styled.div`
   display: flex;
-  gap: 12px;
+  gap: 10px;
   margin-top: 10px;
 
   a {
@@ -80,6 +101,10 @@ const SocialRow = styled.div`
       font-size: 16px;
     }
   }
+
+  @media (min-width: 600px) {
+    gap: 12px;
+  }
 `;
 
 const ContactForm = styled.form`
@@ -87,22 +112,29 @@ const ContactForm = styled.form`
   flex-direction: column;
   gap: 10px;
   background: #ffffff10;
-  padding: 20px;
+  padding: 16px;
   border-radius: 12px;
   width: 100%;
-  max-width: 300px;
+  max-width: 100%;
+
+  @media (min-width: 600px) {
+    padding: 20px;
+    max-width: 300px;
+  }
 `;
 
 const Input = styled.input`
   padding: 10px;
   border-radius: 6px;
   border: none;
+  font-size: 15px;
 `;
 
 const TextArea = styled.textarea`
   padding: 10px;
   border-radius: 6px;
   border: none;
+  font-size: 15px;
 `;
 
 const SubmitButton = styled(motion.button)`
@@ -113,6 +145,7 @@ const SubmitButton = styled(motion.button)`
   border-radius: 6px;
   font-weight: 600;
   cursor: pointer;
+  font-size: 15px;
   &:hover {
     background: #ffd700;
     color: black;
@@ -123,17 +156,40 @@ const Copyright = styled.div`
   width: 100%;
   text-align: center;
   margin-top: 10px;
-  font-size: 15px;
+  font-size: 14px;
   color: #ffffffaa;
 `;
+
 const MapContainer = styled.div`
   width: 100%;
-  margin-top: -60px;
+  margin-top: 0;
+  display: flex;
+  justify-content: center;
+
   iframe {
-    width: 60%;
-    height: 300px;
+    width: 100%;
+    height: 200px;
     border: none;
     border-radius: 8px;
+    max-width: 400px;
+  }
+
+  @media (min-width: 600px, max-width: 900px) {
+    iframe {
+      height: 250px;
+      max-width: 500px;
+    }
+  }
+
+  @media (min-width: 900px) {
+    margin-top: -60px;
+    margin-bottom: 20px;
+    margin-left:-200px;
+    iframe {
+      width: 60%;
+      height: 300px;
+      max-width: none;
+    }
   }
 `;
 
@@ -185,7 +241,6 @@ const Footer = () => {
             <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
               <FaTwitter />
             </a>
-            {/* telegram */}
             <a href="https://t.me/yourtelegram" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
               <FaTelegramPlane />
             </a>
@@ -218,11 +273,11 @@ const Footer = () => {
             </SubmitButton>
           </ContactForm>
         </Column>
-<MapContainer
-  dangerouslySetInnerHTML={{
-    __html: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d213.25016210377703!2d38.794672956140744!3d9.02006823267653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85005f5bf7d9%3A0xdb4918396ab3f0d5!2sTriple%20Technologies!5e1!3m2!1sen!2set!4v1752069101685!5m2!1sen!2set" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
-  }}
-/>
+        <MapContainer
+          dangerouslySetInnerHTML={{
+            __html: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d213.25016210377703!2d38.794672956140744!3d9.02006823267653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85005f5bf7d9%3A0xdb4918396ab3f0d5!2sTriple%20Technologies!5e1!3m2!1sen!2set!4v1752069101685!5m2!1sen!2set" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+          }}
+        />
 
         <Copyright>
           © 2025 Triple Technologies. All rights reserved.
