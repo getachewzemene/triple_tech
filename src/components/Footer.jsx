@@ -114,11 +114,10 @@ const ContactForm = styled.form`
   background: #ffffff10;
   padding: 16px;
   border-radius: 12px;
-  width: 100%;
   max-width: 100%;
 
   @media (min-width: 600px) {
-    padding: 20px;
+    padding: 10px;
     max-width: 300px;
   }
 `;
@@ -162,16 +161,16 @@ const Copyright = styled.div`
 
 const MapContainer = styled.div`
   width: 100%;
-  margin-top: 0;
+  margin-top: -120px;
+  margin-left: -200px;
   display: flex;
   justify-content: center;
 
   iframe {
-    width: 100%;
-    height: 200px;
+    height: 250px;
     border: none;
-    border-radius: 8px;
-    max-width: 400px;
+    width: 100%;
+    max-width: 800px;
   }
 
   @media (min-width: 600px, max-width: 900px) {
@@ -263,12 +262,12 @@ const Footer = () => {
             </SubmitButton>
           </ContactForm>
         </Column>
+
         <MapContainer
           dangerouslySetInnerHTML={{
             __html: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d213.25016210377703!2d38.794672956140744!3d9.02006823267653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85005f5bf7d9%3A0xdb4918396ab3f0d5!2sTriple%20Technologies!5e1!3m2!1sen!2set!4v1752069101685!5m2!1sen!2set" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
           }}
         />
-
         <Copyright>
           © 2025 Triple Technologies. All rights reserved.
         </Copyright>
