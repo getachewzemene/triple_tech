@@ -181,16 +181,6 @@ const MapContainer = styled.div`
     }
   }
 
-  @media (min-width: 900px) {
-    margin-top: -60px;
-    margin-bottom: 20px;
-    margin-left:-200px;
-    iframe {
-      width: 60%;
-      height: 300px;
-      max-width: none;
-    }
-  }
 `;
 
 const Footer = () => {

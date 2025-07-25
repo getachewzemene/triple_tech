@@ -61,7 +61,7 @@ const ServiceCard = styled(motion.div)`
   align-items: center;
   width: 100%;
   max-width: 340px;
-  min-height: 320px;
+  height: 320px;
   cursor: pointer;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;

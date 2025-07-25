@@ -28,12 +28,10 @@ const VideoSection = styled.section`
   .overlay {
     position: absolute;
     top: 20px;
-    left: -250px;
+    left: 0px;
     z-index: 2;
-    width: 100%;
+    width: 99%;
     height: 100%;
-    padding: 1rem;
-    display: none; /* Hide by default */
   }
 
   .content-box {
@@ -45,7 +43,19 @@ const VideoSection = styled.section`
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
     margin: 0 auto;
   }
-
+ @media (min-width: 300px, max-width: 600px) {
+   height: clamp(350px, 60vw, 550px);
+    .overlay {
+      left: 500px;
+      padding: 1rem;
+      display: block; /* Show overlay on medium+ screens */
+    }
+    .content-box {
+      padding: 2rem;
+      max-width: 500px;
+      border-radius: 16px;
+    }
+}
   @media (min-width: 600px, max-width: 900px) {
     height: clamp(350px, 60vw, 550px);
     .overlay {
