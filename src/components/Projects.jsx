@@ -2,8 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 import { FaWarehouse, FaDumbbell, FaHospital, FaIndustry } from "react-icons/fa";
+import { fadeInUp, fadeInDown, staggerContainer } from "../utils/animations";
 
-const ProjectsWrapper = styled.section`
+const ProjectsWrapper = styled(motion.section)`
   text-align: center;
   padding: 30px 10px;
   background: #F4F6F8;
@@ -168,29 +169,28 @@ const ProjectCard = styled(motion.div)`
   }
 `;
 
-const slideInRight = {
-  hidden: { opacity: 0, x: 100 },
-  visible: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 50, damping: 20 } }
-};
+const slideInRight = fadeInUp;
 
 const Projects = () => (
   <>
     <HeadingWrapper id="projects">
       <Heading
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        variants={fadeInDown}
+        initial="hidden"
+        whileInView="visible"
         viewport={{ once: true }}
       >
         Our Recent Projects
       </Heading>
     </HeadingWrapper>
-    <ProjectsWrapper>
+    <ProjectsWrapper
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
+    >
       <ProjectCard
         variants={slideInRight}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
         className="Card-wrapper"
       >
         <FaWarehouse className="icon" />
@@ -202,9 +202,6 @@ const Projects = () => (
       </ProjectCard>
       <ProjectCard
         variants={slideInRight}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
         className="Card-wrapper"
       >
         <FaDumbbell className="icon" />
@@ -216,9 +213,6 @@ const Projects = () => (
       </ProjectCard>
       <ProjectCard
         variants={slideInRight}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
         className="Card-wrapper"
       >
         <FaHospital className="icon" />
@@ -230,9 +224,6 @@ const Projects = () => (
       </ProjectCard>
       <ProjectCard
         variants={slideInRight}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
         className="Card-wrapper"
       >
         <FaIndustry className="icon" />

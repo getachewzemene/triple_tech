@@ -2,8 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 import { FaLightbulb, FaUserTie, FaHeadset } from "react-icons/fa";
+import { fadeInUp, fadeInDown, staggerContainer } from "../utils/animations";
 
-const SectionWrapper = styled.section`
+const SectionWrapper = styled(motion.section)`
   padding: 30px;
   text-align: center;
   display: flex;
@@ -103,17 +104,22 @@ const WhyChooseUs = () => (
   <>
   <HeadingWrapper>
     <Heading
-      initial={{ opacity: 0, y: -20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
+      variants={fadeInDown}
+      initial="hidden"
+      whileInView="visible"
       viewport={{ once: true }}
        id="why-choose-us"
     >
       Why Choose Us
     </Heading>
   </HeadingWrapper>
-  <SectionWrapper>
-    <Card whileHover={{ scale: 1.05 }}>
+  <SectionWrapper
+    variants={staggerContainer}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, amount: 0.1 }}
+  >
+    <Card variants={fadeInUp} whileHover={{ scale: 1.05 }}>
         <FaLightbulb className="icon" />
         <h3>Innovation</h3>
         <div className="divider" />
@@ -121,7 +127,7 @@ const WhyChooseUs = () => (
           We deliver cutting-edge solutions tailored to your business needs, leveraging the latest technologies to keep you ahead of the competition.
         </p>
       </Card>
-      <Card whileHover={{ scale: 1.05 }}>
+      <Card variants={fadeInUp} whileHover={{ scale: 1.05 }}>
         <FaUserTie className="icon" />
         <h3>Expertise</h3>
         <div className="divider" />
@@ -129,7 +135,7 @@ const WhyChooseUs = () => (
           Our team brings decades of industry experience, ensuring reliable, high-quality results and expert guidance at every project stage.
         </p>
       </Card>
-      <Card whileHover={{ scale: 1.05 }}>
+      <Card variants={fadeInUp} whileHover={{ scale: 1.05 }}>
         <FaHeadset className="icon" />
         <h3>Support</h3>
         <div className="divider" />

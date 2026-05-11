@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
+import { staggerContainer, fadeInDown, fadeInUp } from "../utils/animations";
 
 // Styled wrapper for full-width video background
 const VideoSection = styled.section`
@@ -125,11 +126,14 @@ const Carousel = () => {
 
         {/* Overlaid Content (hidden on small screens) */}
         <div className="overlay">
-          <div className="content-box">
+          <motion.div
+            className="content-box"
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+          >
             <motion.h2
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              variants={fadeInDown}
               style={{
                 fontSize: "clamp(1.1rem, 6vw, 2rem)",
                 fontWeight: "bold",
@@ -139,7 +143,8 @@ const Carousel = () => {
             >
               Accelerating business growth with smart technologies and impactful innovation.
             </motion.h2>
-            <p
+            <motion.p
+              variants={fadeInUp}
               style={{
                 fontSize: "clamp(0.95rem, 4vw, 18px)",
                 color: "#ffffff",
@@ -149,19 +154,21 @@ const Carousel = () => {
               }}
             >
               Triple Technologies fuels business growth with smart software, training, and digital marketing.
-            </p>
+            </motion.p>
 
-            <StyledButton
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-              onClick={() => {
-                const el = document.getElementById("footer");
-                if (el) el.scrollIntoView({ behavior: "smooth" });
-              }}
-            >
-              Contact Us
-            </StyledButton>
-          </div>
+            <motion.div variants={fadeInUp}>
+              <StyledButton
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.97 }}
+                onClick={() => {
+                  const el = document.getElementById("footer");
+                  if (el) el.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                Contact Us
+              </StyledButton>
+            </motion.div>
+          </motion.div>
         </div>
       </VideoSection>
     </motion.div>
