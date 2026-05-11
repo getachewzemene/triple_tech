@@ -4,6 +4,7 @@ import { FaVideo, FaChartLine, FaCode, FaMobileAlt, FaPaintBrush, FaRobot } from
 
 import { motion, AnimatePresence } from "framer-motion";
 import Header from "./Header";
+import { fadeInUp, fadeInDown, staggerContainer, scaleIn } from "../utils/animations";
 
 // Elegant Theme Colors
 const colors = {
@@ -44,7 +45,7 @@ const PageWrapper = styled.div`
     border-radius: 2px;
   }
 `;
-const GridContainer = styled.div`
+const GridContainer = styled(motion.div)`
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
@@ -243,17 +244,21 @@ const Training = () => {
       <Header />
       <PageWrapper>
       <Heading
-       initial={{ opacity: 0, y: -20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      viewport={{ once: true }}
+       variants={fadeInDown}
+      initial="hidden"
+      animate="visible"
       > {selectedCourse ? `${selectedCourse.title} Module` : "Training Modules"}</Heading>
          
         {!selectedCourse ? (
-          <GridContainer>
+          <GridContainer
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+          >
             {courses.map((course) => (
         <Card
   key={course.id}
+  variants={fadeInUp}
   whileHover={{ scale: 1.05 }}
   whileTap={{ scale: 0.98 }}
   onClick={() => setSelectedCourse(course)}
@@ -269,6 +274,13 @@ const Training = () => {
           </GridContainer>
         ) : (
           <AnimatePresence>
+            <motion.div
+              key="course-detail"
+              variants={scaleIn}
+              initial="hidden"
+              animate="visible"
+              exit={{ opacity: 0, scale: 0.96, transition: { duration: 0.2 } }}
+            >
             <LayoutContainer>
               <LeftPanel>
                 <h2 style={{ color: colors.accent }}>Contents</h2>
@@ -308,6 +320,7 @@ const Training = () => {
                 </ContentDisplay>
               </RightPanel>
             </LayoutContainer>
+            </motion.div>
           </AnimatePresence>
         )}
       </PageWrapper>

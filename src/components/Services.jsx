@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 import { FaLaptopCode, FaMobileAlt, FaBullhorn, FaChalkboardTeacher } from "react-icons/fa";
+import { fadeInUp, fadeInDown, staggerContainer } from "../utils/animations";
 
-const ServicesWrapper = styled.section`
+const ServicesWrapper = styled(motion.section)`
   background: #F4F6F8;
   padding: 30px 10px;
   text-align: center;
@@ -134,30 +135,29 @@ const ServiceCard = styled(motion.div)`
   }
 `;
 
-const slideInRight = {
-  hidden: { opacity: 0, x: 100 },
-  visible: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 50, damping: 20 } }
-};
+const slideInRight = fadeInUp;
 
 const Services = () => (
   <>
     <HeadingWrapper id="services">
       <Heading
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        variants={fadeInDown}
+        initial="hidden"
+        whileInView="visible"
         viewport={{ once: true }}
       >
         Our Services
       </Heading>
     </HeadingWrapper>
 
-    <ServicesWrapper>
+    <ServicesWrapper
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
+    >
       <ServiceCard
         variants={slideInRight}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
         className="Card-wrapper"
       >
         <FaLaptopCode className="icon" />
@@ -170,9 +170,6 @@ const Services = () => (
       </ServiceCard>
       <ServiceCard
         variants={slideInRight}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
         className="Card-wrapper"
       >
         <FaMobileAlt className="icon" />
@@ -186,9 +183,6 @@ const Services = () => (
       </ServiceCard>
       <ServiceCard
         variants={slideInRight}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
         className="Card-wrapper"
       >
         <FaBullhorn className="icon" />
@@ -202,9 +196,6 @@ const Services = () => (
       </ServiceCard>
       <ServiceCard
         variants={slideInRight}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
         className="Card-wrapper"
       >
         <FaChalkboardTeacher className="icon" />

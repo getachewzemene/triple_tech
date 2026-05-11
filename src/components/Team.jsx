@@ -2,8 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 import { FaUserTie } from "react-icons/fa";
+import { fadeInUp, fadeInDown, staggerContainer } from "../utils/animations";
 
-const TeamWrapper = styled.section`
+const TeamWrapper = styled(motion.section)`
   padding: 20px 10px;
   text-align: center;
   display: flex;
@@ -142,28 +143,33 @@ const Team = () => (
   <>
     <HeadingWrapper id="team">
       <Heading
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        variants={fadeInDown}
+        initial="hidden"
+        whileInView="visible"
         viewport={{ once: true }}
       >
         Meet Our Team
       </Heading>
     </HeadingWrapper>
-    <TeamWrapper>
-      <TeamCard whileHover={{ scale: 1.05 }}>
+    <TeamWrapper
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
+    >
+      <TeamCard variants={fadeInUp} whileHover={{ scale: 1.05 }}>
         <FaUserTie className="icon" />
         <h3>Tsegaselassie Kindye</h3>
         <p>CEO & Co-Founder</p>
         <p className="sub-title">Software Engineer</p>
       </TeamCard>
-      <TeamCard whileHover={{ scale: 1.05 }}>
+      <TeamCard variants={fadeInUp} whileHover={{ scale: 1.05 }}>
         <FaUserTie className="icon" />
         <h3>Getachew Zemene</h3>
         <p>CTO & Co-Founder</p>
         <p className="sub-title">Software Engineer|Full-Stack Developer</p>
       </TeamCard>
-      <TeamCard whileHover={{ scale: 1.05 }}>
+      <TeamCard variants={fadeInUp} whileHover={{ scale: 1.05 }}>
         <FaUserTie className="icon" />
         <h3>Dagim Wondale</h3>
         <p>CMO & Co-Founder</p>
